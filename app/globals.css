@@ -2,67 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Palette: https://coolors.co/7737b5-ed2c62-379844-b9a740-534bde-000000-f05729-f89e36 */
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    /* Couleurs Thème Clair */
+    --background: #F89E36; /* Orange/Jaune */
+    --foreground: #000000; /* Noir */
 
-    --card: 0 0% 96.1%;
-    --card-foreground: 0 0% 45.1%;
+    --card: #FFFFFF; /* Blanc (ajouté pour les cartes en mode clair) */
+    --card-foreground: #534BDE; /* Bleu Violette */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
+    --popover: #FFFFFF; /* Blanc */
+    --popover-foreground: #000000; /* Noir */
 
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
+    --primary: #7737B5; /* Violet */
+    --primary-foreground: #FFFFFF; /* Blanc */
 
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
+    --secondary: #379844; /* Vert */
+    --secondary-foreground: #FFFFFF; /* Blanc */
 
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
+    --muted: #B9A740; /* Jaune */
+    --muted-foreground: #000000; /* Noir */
 
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --accent: #ED2C62; /* Rouge/Pink */
+    --accent-foreground: #FFFFFF; /* Blanc */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: #F05729; /* Orange/Rouge */
+    --destructive-foreground: #FFFFFF; /* Blanc */
 
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 89.8%;
+    --border: #F89E36; /* Orange/Jaune */
+    --input: #F89E36; /* Orange/Jaune */
+    --ring: #F89E36; /* Orange/Jaune */
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
+    /* Couleurs Thème Sombre */
+    --background: #000000; /* Noir */
+    --foreground: #F89E36; /* Orange/Jaune */
 
-    --card: 0 0% 14.9%;
-    --card-foreground: 0 0% 63.9%;
+    --card: #1F1F1F; /* Gris Foncé (ajouté pour les cartes en mode sombre) */
+    --card-foreground: #F89E36; /* Orange/Jaune */
 
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: #1F1F1F; /* Gris Foncé */
+    --popover-foreground: #F89E36; /* Orange/Jaune */
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
+    --primary: #F89E36; /* Orange/Jaune */
+    --primary-foreground: #000000; /* Noir */
 
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: #7737B5; /* Violet */
+    --secondary-foreground: #FFFFFF; /* Blanc */
 
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
+    --muted: #379844; /* Vert */
+    --muted-foreground: #F89E36; /* Orange/Jaune */
 
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: #ED2C62; /* Rouge/Pink */
+    --accent-foreground: #000000; /* Noir */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: #F05729; /* Orange/Rouge */
+    --destructive-foreground: #000000; /* Noir */
 
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 14.9%;
+    --border: #1F1F1F; /* Gris Foncé */
+    --input: #1F1F1F; /* Gris Foncé */
+    --ring: #1F1F1F; /* Gris Foncé */
   }
 }
 
@@ -73,4 +77,109 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  a {
+    @apply text-primary hover:text-secondary underline hover:no-underline transition-all duration-300 ease-in-out;
+  }
+  
+  ul {
+    @apply list-disc pl-5 list-outside my-2 ml-4;	
+  }
+  
+  ol {
+    @apply list-decimal pl-5 list-outside my-2 ml-4;
+  }
+  
+  li {
+    @apply text-foreground my-2;
+  }
+  
+  h1 {
+    @apply text-2xl font-bold my-2;
+  }
+  h2 {
+    @apply text-xl font-semibold my-2;
+  }
+  h3 {
+    @apply text-lg font-semibold my-2;
+  }
+
+  table {
+    @apply table-auto my-9;
+  }
+  
+  td {
+    @apply border border-border p-3;
+  }
+  
+  th {
+    @apply border border-border font-extrabold;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+.m-card {
+  @apply bg-card text-card-foreground;
+}
+
+.menu-button {
+  .btn-grad {
+    background-image: linear-gradient(to right, #7737B5 0%, #534BDE 51%, #7737B5 100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.cl-card {
+  @apply shadow-2xl bg-card text-card-foreground;
+}
+
+.aligned-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.aligned-list li {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.aligned-list .title {
+  font-weight: bold;
+  width: 150px; /* Adjust this width to your needs */
+}
+
+.aligned-list .content {
+  flex-grow: 1;
+}
+
+.grecaptcha-badge { 
+  visibility: hidden;
 }
